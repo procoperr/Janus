@@ -38,10 +38,16 @@ jobs:
         id: check
         run: |
           # Dry run to check if release would happen
-          if npx semantic-release --dry-run 2>&1 | grep -q "Published release"; then
+          OUTPUT=$(npx semantic-release --dry-run 2>&1)
+          echo "$OUTPUT"
+
+          # Check if a new version would be published
+          if echo "$OUTPUT" | grep -q "The next release version is"; then
             echo "should_release=true" >> $GITHUB_OUTPUT
+            echo "Release will be created"
           else
             echo "should_release=false" >> $GITHUB_OUTPUT
+            echo "No release needed"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
