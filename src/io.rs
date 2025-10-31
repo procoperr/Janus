@@ -335,6 +335,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(not(target_os = "windows"))]
     fn test_preserve_timestamps() -> io::Result<()> {
         let mut source = NamedTempFile::new()?;
         let dest_dir = tempdir()?;
@@ -432,6 +433,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(not(target_os = "windows"))]
     fn test_directory_size() -> io::Result<()> {
         let temp_dir = tempdir()?;
 

@@ -26,19 +26,19 @@ jobs:
 
       - name: Install semantic-release
         run: |
-          bun install -g semantic-release@21 \
+          npm install -g semantic-release@21 \
             @semantic-release/commit-analyzer@11 \
             @semantic-release/release-notes-generator@12 \
             @semantic-release/github@9 \
             @semantic-release/changelog@6 \
             @semantic-release/git@10 \
-            semantic-release-cargo@3
+            semantic-release-cargo@2
 
       - name: Check if release needed
         id: check
         run: |
           # Dry run to check if release would happen
-          if bunx semantic-release --dry-run 2>&1 | grep -q "Published release"; then
+          if npx semantic-release --dry-run 2>&1 | grep -q "Published release"; then
             echo "should_release=true" >> $GITHUB_OUTPUT
           else
             echo "should_release=false" >> $GITHUB_OUTPUT
@@ -161,13 +161,13 @@ jobs:
 
       - name: Install semantic-release
         run: |
-          bun install -g semantic-release@21 \
+          npm install -g semantic-release@21 \
             @semantic-release/commit-analyzer@11 \
             @semantic-release/release-notes-generator@12 \
             @semantic-release/github@9 \
             @semantic-release/changelog@6 \
             @semantic-release/git@10 \
-            semantic-release-cargo@3
+            semantic-release-cargo@2
 
       - name: Download all artifacts
         uses: actions/download-artifact@v3
@@ -211,7 +211,7 @@ jobs:
           EOF
 
       - name: Run semantic-release
-        run: bunx semantic-release
+        run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}

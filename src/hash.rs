@@ -110,9 +110,10 @@ pub struct Hasher {
 }
 
 /// Internal hasher implementation
+#[allow(dead_code)]
 enum HasherImpl {
     #[cfg(feature = "blake3")]
-    Blake3(blake3::Hasher),
+    Blake3(Box<blake3::Hasher>),
 
     #[cfg(feature = "sha256")]
     Sha256(sha2::Sha256),
@@ -124,7 +125,7 @@ impl Hasher {
         #[cfg(feature = "blake3")]
         {
             Self {
-                inner: HasherImpl::Blake3(blake3::Hasher::new()),
+                inner: HasherImpl::Blake3(Box::new(blake3::Hasher::new())),
             }
         }
 
