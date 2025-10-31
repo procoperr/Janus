@@ -62,11 +62,9 @@ fn bench_flat_directory_walk(c: &mut Criterion) {
                     ignore::WalkBuilder::new(dir.path()).hidden(false).git_ignore(true).build();
 
                 let mut file_count = 0;
-                for entry in walker {
-                    if let Ok(entry) = entry {
-                        if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
-                            file_count += 1;
-                        }
+                for entry in walker.flatten() {
+                    if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
+                        file_count += 1;
                     }
                 }
                 black_box(file_count);
@@ -101,11 +99,9 @@ fn bench_nested_directory_walk(c: &mut Criterion) {
                     ignore::WalkBuilder::new(dir.path()).hidden(false).git_ignore(true).build();
 
                 let mut file_count = 0;
-                for entry in walker {
-                    if let Ok(entry) = entry {
-                        if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
-                            file_count += 1;
-                        }
+                for entry in walker.flatten() {
+                    if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
+                        file_count += 1;
                     }
                 }
                 black_box(file_count);
@@ -169,12 +165,10 @@ fn bench_walk_with_metadata(c: &mut Criterion) {
                 ignore::WalkBuilder::new(temp_dir.path()).hidden(false).git_ignore(true).build();
 
             let mut total_size = 0u64;
-            for entry in walker {
-                if let Ok(entry) = entry {
-                    if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
-                        if let Ok(metadata) = entry.metadata() {
-                            total_size += metadata.len();
-                        }
+            for entry in walker.flatten() {
+                if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
+                    if let Ok(metadata) = entry.metadata() {
+                        total_size += metadata.len();
                     }
                 }
             }
@@ -226,17 +220,13 @@ fn bench_walk_with_gitignore(c: &mut Criterion) {
 
     group.bench_function("without_gitignore", |b| {
         b.iter(|| {
-            let walker = ignore::WalkBuilder::new(temp_dir.path())
-                .hidden(false)
-                .git_ignore(false)
-                .build();
+            let walker =
+                ignore::WalkBuilder::new(temp_dir.path()).hidden(false).git_ignore(true).build();
 
             let mut file_count = 0;
-            for entry in walker {
-                if let Ok(entry) = entry {
-                    if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
-                        file_count += 1;
-                    }
+            for entry in walker.flatten() {
+                if entry.file_type().map(|ft| ft.is_file()).unwrap_or(false) {
+                    file_count += 1;
                 }
             }
             black_box(file_count);

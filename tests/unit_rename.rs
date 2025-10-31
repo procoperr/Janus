@@ -169,7 +169,7 @@ fn test_duplicate_content_ambiguous_rename() {
 
     // Should pick the most similar path
     assert!(
-        diff.renamed.len() >= 1,
+        !diff.renamed.is_empty(),
         "Should detect at least one rename based on path similarity"
     );
 }

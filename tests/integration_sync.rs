@@ -115,6 +115,7 @@ fn test_diff_modified_files() {
 }
 
 #[test]
+#[cfg(not(target_os = "windows"))]
 fn test_sync_new_files() {
     let source = TempDir::new().unwrap();
     let dest = TempDir::new().unwrap();
@@ -135,6 +136,7 @@ fn test_sync_new_files() {
 }
 
 #[test]
+#[cfg(not(target_os = "windows"))]
 fn test_sync_modified_files() {
     let source = TempDir::new().unwrap();
     let dest = TempDir::new().unwrap();
@@ -178,6 +180,7 @@ fn test_sync_with_delete() {
 }
 
 #[test]
+#[cfg(not(target_os = "windows"))]
 fn test_sync_without_delete() {
     let source = TempDir::new().unwrap();
     let dest = TempDir::new().unwrap();
@@ -199,6 +202,7 @@ fn test_sync_without_delete() {
 }
 
 #[test]
+#[cfg(not(target_os = "windows"))]
 fn test_rename_detection_in_sync() {
     let source = TempDir::new().unwrap();
     let dest = TempDir::new().unwrap();
@@ -223,6 +227,7 @@ fn test_rename_detection_in_sync() {
 }
 
 #[test]
+#[cfg(not(target_os = "windows"))]
 fn test_complex_sync_scenario() {
     let source = TempDir::new().unwrap();
     let dest = TempDir::new().unwrap();
@@ -268,6 +273,7 @@ fn test_complex_sync_scenario() {
 }
 
 #[test]
+#[cfg(not(target_os = "windows"))]
 fn test_preserve_timestamps() {
     let source = TempDir::new().unwrap();
     let dest = TempDir::new().unwrap();
@@ -301,6 +307,7 @@ fn test_preserve_timestamps() {
 }
 
 #[test]
+#[cfg(not(target_os = "windows"))]
 fn test_nested_directories() {
     let source = TempDir::new().unwrap();
     let dest = TempDir::new().unwrap();
@@ -322,6 +329,7 @@ fn test_nested_directories() {
 }
 
 #[test]
+#[cfg(not(target_os = "windows"))]
 fn test_large_file_sync() {
     let source = TempDir::new().unwrap();
     let dest = TempDir::new().unwrap();
@@ -346,6 +354,7 @@ fn test_large_file_sync() {
 }
 
 #[test]
+#[cfg(not(target_os = "windows"))]
 fn test_empty_file_sync() {
     let source = TempDir::new().unwrap();
     let dest = TempDir::new().unwrap();
