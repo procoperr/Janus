@@ -1,0 +1,149 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+Cargo.lock
+
+# Build artifacts
+/release-artifacts/
+
+# Bun
+node_modules/
+bun.lockb
+
+# Husky
+.husky/_/
+
+# OS-specific
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDEs and editors
+.idea/
+.idea/workspace.xml
+.idea/tasks.xml
+.vscode/
+.vscode/settings.json
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+
+# Backup files
+*.bak
+*.backup
+*.gho
+*.ori
+*.orig
+*.tmp
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+coverage/
+*.profraw
+*.profdata
+lcov.info
+tarpaulin-report.html
+
+# Benchmark results
+/target/criterion/
+
+# Documentation build
+/target/doc/
+
+# Flamegraph outputs
+flamegraph.svg
+perf.data
+perf.data.old
+
+# Profiling
+*.dhat
+massif.out.*
+
+# Temporary directories
+tmp/
+temp/
+
+# Environment files and secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+credentials/
+test-credentials.json
+test-config.toml
+
+# Release signing
+*.asc
+*.sig
+
+# Semantic release
+.semantic-release/
+
+# Personal and experimental
+notes/
+PRIVATE_NOTES.md
+TODO_PERSONAL.md
+DRAFT_*.md
+WIP_*.md
+experiments/
+scratch/
+playground/
+
+# Test data
+test-data/
+sample-data/
+my-tests/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Personal builds
+/my-builds/
+/personal-releases/
+
+# Misc
+*.cache
+.cache/

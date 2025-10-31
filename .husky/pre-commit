@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running pre-commit checks..."
+
+# Check formatting
+echo "Checking code formatting..."
+cargo fmt --all -- --check
+if [ $? -ne 0 ]; then
+  echo "❌ Code formatting check failed. Run 'cargo fmt' to fix."
+  exit 1
+fi
+
+echo "✅ Pre-commit checks passed!"
