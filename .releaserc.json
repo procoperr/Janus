@@ -24,9 +24,9 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     [
-      "semantic-release-cargo",
+      "@semantic-release/exec",
       {
-        "publish": false
+        "prepareCmd": "sed -i.bak 's/^version = \".*\"/version = \"${nextRelease.version}\"/' Cargo.toml && rm Cargo.toml.bak"
       }
     ],
     [
