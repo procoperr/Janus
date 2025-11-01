@@ -26,12 +26,13 @@ jobs:
 
       - name: Install semantic-release
         run: |
-          npm install -g semantic-release@21 \
+          npm install --save-dev semantic-release@21 \
             @semantic-release/commit-analyzer@11 \
             @semantic-release/release-notes-generator@12 \
             @semantic-release/github@9 \
             @semantic-release/changelog@6 \
             @semantic-release/git@10 \
+            conventional-changelog-conventionalcommits@7 \
             semantic-release-cargo@2
 
       - name: Check if release needed
@@ -167,12 +168,13 @@ jobs:
 
       - name: Install semantic-release
         run: |
-          npm install -g semantic-release@21 \
+          npm install --save-dev semantic-release@21 \
             @semantic-release/commit-analyzer@11 \
             @semantic-release/release-notes-generator@12 \
             @semantic-release/github@9 \
             @semantic-release/changelog@6 \
             @semantic-release/git@10 \
+            conventional-changelog-conventionalcommits@7 \
             semantic-release-cargo@2
 
       - name: Download all artifacts
