@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/procoperr/janus/compare/v1.0.0...v1.0.1) (2025-11-01)
+
+
+### Bug Fixes
+
+* disable crates.io publishing in semantic-release ([91b56cc](https://github.com/procoperr/janus/commit/91b56cc6a6df88b3907e8542a2dab07e1f627071))
+
 # 1.0.0 (2025-11-01)
 
 
