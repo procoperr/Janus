@@ -2,7 +2,7 @@
 
 Beautifully fast, simple & reliable file syncing
 
-[![CI](https://github.com/procoperr/janus/workflows/CI/badge.svg)](https://github.com/procoperr/janus/actions) [![Crates.io](https://img.shields.io/crates/v/januss.svg)](https://crates.io/crates/januss) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/procoperr/janus/workflows/CI/badge.svg)](https://github.com/procoperr/janus/actions) [![Release](https://img.shields.io/github/v/release/procoperr/janus)](https://github.com/procoperr/janus/releases) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Table of contents
 
