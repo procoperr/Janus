@@ -1,3 +1,33 @@
+# 1.0.0 (2025-11-01)
+
+
+### Bug Fixes
+
+* add write permissions to release workflow for semantic-release ([a8e4ee1](https://github.com/procoperr/janus/commit/a8e4ee1ee31e23111b72a46e5de8587191f1d232))
+* handle semantic-release errors gracefully in release check ([b418a28](https://github.com/procoperr/janus/commit/b418a288650136a04eead2629490647e6e0c4e16))
+* improve release detection in workflow to show semantic-release output ([db464e1](https://github.com/procoperr/janus/commit/db464e167642469e785daadd274d1e7a56e79713))
+* improve semantic-release configuration with explicit release rules ([f4768c0](https://github.com/procoperr/janus/commit/f4768c040ca49ecf781042544ef1f662da50a925))
+* install semantic-release plugins locally instead of globally ([bf4fde1](https://github.com/procoperr/janus/commit/bf4fde12a1217424f31b2e25b7e475eae13e3588))
+* resolve CI errors - box large enum variant and skip Windows-specific tests ([a8fa403](https://github.com/procoperr/janus/commit/a8fa403061b12a361b0efb6a773886efac6fc0b3))
+* resolve remaining clippy warnings and Windows test failures ([fe0bca4](https://github.com/procoperr/janus/commit/fe0bca46684d1adf8cf6a18a44dab297f6d8b421))
+* simplify release workflow to always run semantic-release ([ea47558](https://github.com/procoperr/janus/commit/ea47558795cf41fa4c65692239ee74bd4c7a87e5))
+* update artifact actions to v4 ([e7459de](https://github.com/procoperr/janus/commit/e7459dee555804f0a251d59b0453b76d899a21bb))
+* use correct binary name 'jan' in release workflow ([f9f1ccd](https://github.com/procoperr/janus/commit/f9f1ccd5471df3216e225b3c377e8a0055a90818))
+* use flatten() for walker iteration in gitignore benchmark ([b30c9c1](https://github.com/procoperr/janus/commit/b30c9c1c1a3b3371d9fc76978ff6cd35f3a279fc))
+
+
+* feat!: initial release ([0feabb7](https://github.com/procoperr/janus/commit/0feabb7ba6f5a924bbc427787cb70791bbe80233))
+
+
+### Features
+
+* Janus ([72ed330](https://github.com/procoperr/janus/commit/72ed33015af8fea6298523fa2fcae7f43e065d6e))
+
+
+### BREAKING CHANGES
+
+* First public release of Janus file synchronization tool
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
