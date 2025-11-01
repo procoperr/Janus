@@ -146,36 +146,6 @@ jobs:
           find artifacts -type f \( -name "*.tar.gz" -o -name "*.zip" \) -exec cp {} release-artifacts/ \;
           ls -lh release-artifacts/
 
-      - name: Create .releaserc.json
-        run: |
-          cat > .releaserc.json << 'EOF'
-          {
-            "branches": ["master"],
-            "plugins": [
-              "@semantic-release/commit-analyzer",
-              "@semantic-release/release-notes-generator",
-              "@semantic-release/changelog",
-              "semantic-release-cargo",
-              [
-                "@semantic-release/git",
-                {
-                  "assets": ["CHANGELOG.md", "Cargo.toml", "Cargo.lock"],
-                  "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-                }
-              ],
-              [
-                "@semantic-release/github",
-                {
-                  "assets": [
-                    {"path": "release-artifacts/*.tar.gz", "label": "Binary (tar.gz)"},
-                    {"path": "release-artifacts/*.zip", "label": "Binary (zip)"}
-                  ]
-                }
-              ]
-            ]
-          }
-          EOF
-
       - name: Run semantic-release
         run: npx semantic-release
         env:
