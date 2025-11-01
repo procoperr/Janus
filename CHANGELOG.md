@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/procoperr/janus/compare/v1.0.1...v1.0.2) (2025-11-01)
+
+
+### Bug Fixes
+
+* replace semantic-release-cargo with @semantic-release/exec to avoid crates.io publishing ([bbb7655](https://github.com/procoperr/janus/commit/bbb76554df8fcee2b47a3c265434efbd0c2d3474))
+
 ## [1.0.1](https://github.com/procoperr/janus/compare/v1.0.0...v1.0.1) (2025-11-01)
 
 
