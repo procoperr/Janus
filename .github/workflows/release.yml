@@ -132,8 +132,8 @@ jobs:
             @semantic-release/github@9 \
             @semantic-release/changelog@6 \
             @semantic-release/git@10 \
-            conventional-changelog-conventionalcommits@7 \
-            semantic-release-cargo@2
+            @semantic-release/exec@6 \
+            conventional-changelog-conventionalcommits@7
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
