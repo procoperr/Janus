@@ -13,62 +13,11 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  # Check if we should create a release
-  check-release:
-    name: Check Release Needed
-    runs-on: ubuntu-latest
-    outputs:
-      should_release: ${{ steps.check.outputs.should_release }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
-
-      - name: Install semantic-release
-        run: |
-          npm install --save-dev semantic-release@21 \
-            @semantic-release/commit-analyzer@11 \
-            @semantic-release/release-notes-generator@12 \
-            @semantic-release/github@9 \
-            @semantic-release/changelog@6 \
-            @semantic-release/git@10 \
-            conventional-changelog-conventionalcommits@7 \
-            semantic-release-cargo@2
-
-      - name: Check if release needed
-        id: check
-        run: |
-          # Dry run to check if release would happen
-          set +e  # Don't exit on error
-          OUTPUT=$(npx semantic-release --dry-run 2>&1)
-          EXIT_CODE=$?
-          set -e  # Re-enable exit on error
-
-          echo "$OUTPUT"
-          echo "Exit code: $EXIT_CODE"
-
-          # Check if a new version would be published
-          if echo "$OUTPUT" | grep -q "The next release version is"; then
-            echo "should_release=true" >> $GITHUB_OUTPUT
-            echo "✅ Release will be created"
-          else
-            echo "should_release=false" >> $GITHUB_OUTPUT
-            echo "ℹ️  No release needed"
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
 
   # Build artifacts for all platforms
   build-artifacts:
     name: Build ${{ matrix.target }}
-    needs: check-release
-    if: needs.check-release.outputs.should_release == 'true'
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -159,8 +108,7 @@ jobs:
   # Semantic release with artifacts
   release:
     name: Semantic Release
-    needs: [check-release, build-artifacts]
-    if: needs.check-release.outputs.should_release == 'true'
+    needs: build-artifacts
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
